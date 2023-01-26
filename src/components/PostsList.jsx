@@ -1,5 +1,5 @@
 import React from "react";
-import { NavLink, useRouteMatch } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import DateDisplay from "./DateDisplay";
 const PostsList = ({ children }) => {
   return (
@@ -14,7 +14,7 @@ const PostListItem = ({ item }) => {
     id: postId,
     attributes: { title, "publish-date": publishDate, content },
   } = item;
-  let { url } = useRouteMatch();
+  // let { url } = useRouteMatch();
 
   return (
     <article className="relative group">
@@ -46,7 +46,7 @@ const PostListItem = ({ item }) => {
         </dl>
       </div>
       <NavLink
-        to={`${url}/${postId}`}
+        to={`/posts/${postId}`}
         className="flex items-center text-sm font-medium text-sky-500"
       >
         <span className="absolute -inset-y-2.5 -inset-x-4 md:-inset-y-4 md:-inset-x-6 sm:rounded-2xl"></span>
@@ -90,14 +90,14 @@ const PostListItemSkeleton = () => {
         {/* date */}
         <div className="absolute left-0 top-0 lg:left-auto lg:right-full lg:mr-[calc(6.5rem+1px)] bg-slate-300  w-24 h-6 rounded-md" />
         {/* title */}
-        <div className="pt-8  lg:pt-0">
+        <div className="pt-8 lg:pt-0">
           <div className="h-6 max-w-[35ch] w-full bg-slate-300 rounded-md"></div>
         </div>
         {/* content */}
         <div className="mt-2 mb-4 w-full max-w-[65ch] h-20 bg-slate-300 rounded-md" />
       </div>
       {/* read more */}
-      <div className="w-24 h-5 rounded-md  bg-slate-300"></div>
+      <div className="w-24 h-5 rounded-md bg-slate-300"></div>
     </article>
   );
 };
