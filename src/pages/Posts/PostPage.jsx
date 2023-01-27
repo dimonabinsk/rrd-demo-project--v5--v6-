@@ -1,7 +1,7 @@
 import React from "react";
 // Libraries
 import { useSelector } from "react-redux";
-import { useParams } from "react-router-dom";
+import { Navigate, useParams } from "react-router-dom";
 // Store
 import { loadingStatusSelector, postSelector } from "../../store/postsSlice";
 // Components
@@ -17,6 +17,8 @@ const PostPage = () => {
   const loadingStatus = useSelector(loadingStatusSelector());
   const post = useSelector(postSelector(postId));
 
+  if (loadingStatus !== "pending" && loadingStatus !== "idle" && !post)
+    return <Navigate to="/posts" />;
   return (
     <>
       <div className="mx-auto max-w-8xl">

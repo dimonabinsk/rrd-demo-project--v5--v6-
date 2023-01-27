@@ -1,5 +1,5 @@
 import React from "react";
-import { Route, Routes } from "react-router-dom";
+import { Navigate, Route, Routes } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 import AuthLayout from "./layouts/AuthLayout";
 import PostsLayout from "./layouts/PostsLayout";
@@ -21,14 +21,17 @@ function App() {
       <Routes>
         <Route index element={<MainPage />} />
         <Route path="auth" element={<AuthLayout />}>
+          <Route index element={<Navigate to="/auth/signup" />} />
           <Route path="login" element={<LoginPage />} />
           <Route path="signup" element={<SignUpPage />} />
+          <Route path="*" element={<Navigate to="/auth/signup" />} />
         </Route>
         <Route path="posts" element={<PostsLayout />}>
           <Route index element={<PostsListPage />} />
           <Route path=":postId" element={<PostPage />} />
         </Route>
         {/* <Redirect from="*" to="/" /> */}
+        <Route path="*" element={<Navigate to={"/posts"} />} />
       </Routes>
 
       <ToastContainer />
