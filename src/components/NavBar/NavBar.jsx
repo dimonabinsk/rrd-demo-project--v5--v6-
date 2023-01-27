@@ -15,7 +15,7 @@ const NavBar = () => {
       <NavBarLogo
         link="/"
         src="/assets/img/rr-logo.svg"
-        label="React Router v5"
+        label="React Router v5 to v6"
       />
       <NavBarLinkList>
         {isLoggedIn ? (
