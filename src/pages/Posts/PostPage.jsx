@@ -7,9 +7,10 @@ import { loadingStatusSelector, postSelector } from "../../store/postsSlice";
 // Components
 import DateDisplay from "../../components/DateDisplay";
 import SpinnerLader from "../../components/SpinnerLoader";
-import StyledNavLink from "../../components/StyledNavLink";
+import BackButton from "../../components/BackButton";
+// import StyledNavLink from "../../components/StyledNavLink";
 // Icons
-import { ChevronLeftIcon } from "@heroicons/react/solid";
+// import { ChevronLeftIcon } from "@heroicons/react/solid";
 
 const PostPage = () => {
   const { postId } = useParams();
@@ -23,10 +24,11 @@ const PostPage = () => {
     <>
       <div className="mx-auto max-w-8xl">
         <div className="flex px-4 pt-8 pb-10 lg:px-8 ">
-          <StyledNavLink to="/posts" styleType="withIcon">
+          {/* <StyledNavLink to="/posts" styleType="withIcon">
             <ChevronLeftIcon className="h-6" />
             Go back
-          </StyledNavLink>
+          </StyledNavLink> */}
+          <BackButton>Go Back</BackButton>
         </div>
       </div>
       <div className="px-4 sm:px-6 md:px-9">
